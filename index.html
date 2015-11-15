@@ -2,6 +2,7 @@
 <html>
 
   <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
     <!-- Angular Material Dependencies -->
@@ -16,7 +17,12 @@
 
   <body ng-app="plnkrApp" ng-controller="DemoController">
     <h1>Reddit</h1>
-    <reddit-posts paras="1"></reddit-posts> 
+    <div layout="row" layout-wrap>
+        <div flex="25" ng-repeat="item in redditData" ng-if="item.data.thumbnail" class="reddit-image">
+            <img ng-src="{{item.data.thumbnail}}">
+        </div>
+    </div>
+   
   </body>
 
 </html>

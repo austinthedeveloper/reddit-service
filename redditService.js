@@ -5,13 +5,9 @@ angular.module('redditService')
       get: function(options) {
         var delay = $q.defer();
         var obj = {
-          type: options.type || 'meat-and-filler',
-          paras: options.paras || null,
-          sentences: options.sentences || null,
-          startWithLorem: options.startWithLorem || null,
-          format: options.format || 'json'
+          limit: 75
         };
-        $http.get('https://baconipsum.com/api/', {params: obj})
+        $http.get('http://api.reddit.com/hot', {params: obj})
           .success(function(data) {
             delay.resolve(data); 
           });
