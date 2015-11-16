@@ -24,7 +24,7 @@ module.exports = function (grunt) {
       },
       js: {
         files: ['scripts/{,*/}*.js'],
-        tasks: ['newer:jshint:all']
+        tasks: ['jshint']
       },
     },
     jshint: {
