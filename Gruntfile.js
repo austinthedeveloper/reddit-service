@@ -8,8 +8,9 @@ module.exports = function (grunt) {
     },
     sass: {
       dist: {
-        options: { 
-          style: 'expanded'
+        options: {
+          style: 'expanded',
+          compass: true
         },
         files: {
           'style.css': 'sass/style.scss'
@@ -17,11 +18,11 @@ module.exports = function (grunt) {
       }
     },
     watch: {
-      scss: {
-        files: ['**/*.scss'],
+      css: {
+        files: '**/*.scss',
         tasks: ['sass']
       },
-    }
+    },
   });
 
   grunt.loadNpmTasks('grunt-serve');
@@ -29,7 +30,6 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task(s).
-  grunt.registerTask('default', ['serve', 'watch']);
-//  grunt.registerTask('sass', ['sass']);
+  grunt.registerTask('default', ['sass', 'serve']);
 
 };
