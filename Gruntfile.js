@@ -23,7 +23,7 @@ module.exports = function (grunt) {
         tasks: ['sass']
       },
       js: {
-        files: ['js/{,*/}*.js'],
+        files: ['scripts/{,*/}*.js'],
         tasks: ['newer:jshint:all']
       },
     },
@@ -33,7 +33,7 @@ module.exports = function (grunt) {
       all: {
         src: [
           'Gruntfile.js',
-          'js/{,*/}*.js'
+          'scripts/{,*/}*.js'
         ]
       },
     },
