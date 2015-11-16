@@ -5,7 +5,8 @@ angular.module('redditService')
       get: function(options) {
         var delay = $q.defer();
         var obj = {
-          limit: 75
+          limit: options.limit || 25,
+          count: options.count || null
         };
         $http.get('http://api.reddit.com/hot', {params: obj})
           .success(function(data) {

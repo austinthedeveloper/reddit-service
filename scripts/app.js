@@ -1,11 +1,23 @@
-var app = angular.module('plnkrApp', ['ngMaterial', 'redditService']);
+var app = angular.module('redditApp', ['ngMaterial', 'redditService']);
 //https://baconipsum.com/json-api/
 app
-  .controller("DemoController", function ($scope, reddit) {
-
-    reddit.get().then(function (data) {
+  .controller("MainController", function ($scope, reddit, _) {
+    
+  $scope.results = [];
+  
+  var options = {
+    limit: $scope.limit || 25,
+    count: $scope.count || null
+  };
+  
+  $scope.getPosts = function(object) {
+    reddit.get(options).then(function (data) {
       $scope.redditData = data.data.children;
     });
+  };
+  
+  $scope.getPosts();
+    
 
   })
   .factory('_', ['$window', function ($window) {
