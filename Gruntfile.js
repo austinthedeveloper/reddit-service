@@ -22,12 +22,27 @@ module.exports = function (grunt) {
         files: '**/*.scss',
         tasks: ['sass']
       },
+      js: {
+        files: ['js/{,*/}*.js'],
+        tasks: ['newer:jshint:all']
+      },
+    },
+    jshint: {
+      options: {
+      },
+      all: {
+        src: [
+          'Gruntfile.js',
+          'js/{,*/}*.js'
+        ]
+      },
     },
   });
 
   grunt.loadNpmTasks('grunt-serve');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
 
   // Default task(s).
   grunt.registerTask('default', ['sass', 'serve']);
